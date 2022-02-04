@@ -1,0 +1,54 @@
+.path{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+    margin-left: 330px;
+    top:18px;
+    position: fixed;
+    height: 30px;
+    width: 100%;
+}
+
+.docTitle{
+    font-size: 24px;
+    align-items: center;
+    padding-left: 26%;
+    margin-top: 200px;
+    display: flex;
+}
+
+.docBtn{
+    font-size: 11px;
+    margin-top: 13px;
+    margin-left: 700px;
+    border: none;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.docBody{
+    padding-top: 3%;
+    margin-left: 300px;
+}
+
+table {
+    
+    width: 90%;
+    border-collapse: separate;
+    border-spacing: 1px;
+    line-height: 1.5;
+    margin : 20px 10px;
+    padding-bottom : 10%;
+}
+
+thead th:nth-child(2){
+    width: 40%;
+}
+
+th, td {
+    font-size: 14px;
+    padding:15px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;   
+}
