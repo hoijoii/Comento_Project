@@ -1,0 +1,20 @@
+.form{
+    width: 60%;
+    margin-left: 400px;
+    margin-top: 100px;
+    
+}
+
+.formBtn{
+    font-size: 11px;
+    border: none;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.fileform{
+    width: 450px;
+}
+
+

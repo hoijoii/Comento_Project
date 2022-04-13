@@ -1,0 +1,13 @@
+.LoginForm{
+    margin: 120px 530px;
+}
+
+.textForm{
+    width: 450px;
+    justify-content: center;
+    
+}
+
+.loginbutton{
+    background-color: rgb(35, 34, 37);
+}
