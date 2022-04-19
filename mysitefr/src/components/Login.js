@@ -46,59 +46,51 @@ function Login() {
         {isLogin ? 
         
         <div>
-            <div className='mb-3'>
-                <label htmlFor = "username" className='form-label'>Email</label>
-                <input type="text" className='textForm form-control' id="username" placeholder='Enter Email' 
+            <div className='textForm mb-3'>
+                <input type="text" className='form-control' id="username" placeholder='Enter Email' 
                 value = {username} onChange = {e=>setUsername(e.target.value)}
                 />
-            </div>
-
-            <div className='mb-3'>
-                <label htmlFor = "password" className='form-label'>Password</label>
-                <input type="password" className='textForm form-control' 
+                <br/>
+                <input type="password" className='form-control' 
                 id="password" placeholder='Enter Password' 
                 value = {password} onChange = {e=>setPassword(e.target.value)}
                 />
+                <br/><br/>
+                <Button block color="secondary" size="lg" type='button' onClick={loginBtn} className='loginbutton'>
+                    Login</Button> 
             </div>
-            <Button block color="secondary" size="lg" type='button' onClick={loginBtn} className='loginbutton'>
-                Login</Button> 
+            
         </div>
         
         
       : 
       <div>
-          <div className='mb-3'>
-                <label htmlFor = "email" className='form-label'>이메일</label>
-                <input type="email" className='textForm form-control' id="email" placeholder='Enter Email' 
+          <div className='textForm mb-3'>
+                <input type="email" className='form-control' id="email" placeholder='Enter Email' 
                 value = {email} onChange = {e=>setEmail(e.target.value)}
                 />
-            </div>
-
-            <div className='mb-3'>
-                <label htmlFor = "password" className='form-label'>비밀번호</label>
-                <input type="password" className='textForm form-control' 
+                <br/>
+                <input type="password" className='form-control' 
                 id="password" placeholder='Enter Password' 
                 value = {password} onChange = {e=>setPassword(e.target.value)}
                 />
-            </div>
-
-            <div className='mb-3'>
-                <label htmlFor = "name" className='form-label'>이름</label>
-                <input type="text" className='textForm form-control' 
+                <br/>
+                <input type="text" className='form-control' 
                 id="realname" placeholder='Enter Your Realname' 
                 value = {realname} onChange = {e=>setRealname(e.target.value)}
                 />
-            </div>
-
-            <div className='mb-3'>
-                <label htmlFor = "code" className='form-label'>회사코드</label>
-                <input type="text" className='textForm form-control' 
+                <br/>
+                <input type="text" className='form-control' 
                 id="companyCode" placeholder='Enter Your Company Code' 
                 value = {companyCode} onChange = {e=>setCompanyCode(e.target.value)}
                 />
+
+                <br/><br/>
+                <Button block color="secondary" size="lg" type='button' onClick={RegisterBtn} className='loginbutton'>
+                    Register</Button>
             </div>
-            <Button block color="secondary" size="lg" type='button' onClick={RegisterBtn} className='loginbutton'>
-                Register</Button>
+
+            
       </div>
       }
 
