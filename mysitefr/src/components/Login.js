@@ -41,8 +41,6 @@ function Login() {
         {isLogin ? <h1>Login Page</h1> : <h1>Register Page</h1>}
         <br/>
         <br/>
-        
-
         {isLogin ? 
         
         <div>
@@ -57,12 +55,9 @@ function Login() {
                 />
                 <br/><br/>
                 <Button block color="secondary" size="lg" type='button' onClick={loginBtn} className='loginbutton'>
-                    Login</Button> 
+                    File Collection Project</Button> 
             </div>
-            
-        </div>
-        
-        
+        </div>   
       : 
       <div>
           <div className='textForm mb-3'>
@@ -88,9 +83,7 @@ function Login() {
                 <br/><br/>
                 <Button block color="secondary" size="lg" type='button' onClick={RegisterBtn} className='loginbutton'>
                     Register</Button>
-            </div>
-
-            
+            </div> 
       </div>
       }
 
@@ -100,13 +93,8 @@ function Login() {
         : <h6>If You Have Account, Please <Button color="default" size="sm" type="button" className='smButton' onClick={()=>setLogin(true)}>Login</Button> Here.
         </h6>}
         </div>
-
     </div>
   )
 }
 
-<<<<<<< HEAD
 export default Login
-=======
-export default Login
->>>>>>> develop

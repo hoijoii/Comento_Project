@@ -45,8 +45,4 @@ function Navbars() {
   )
 }
 
-<<<<<<< HEAD
 export default Navbars
-=======
-export default Navbars
->>>>>>> develop
