@@ -7,8 +7,7 @@ const Home = () => {
     <div>
       <Navbars />
       <div className='home'>
-          
-          <h1>Board App Project</h1>
+          <h1>File Collection Project</h1>
       </div>
     </div>
   )

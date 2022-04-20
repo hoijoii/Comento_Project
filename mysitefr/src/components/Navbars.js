@@ -1,32 +1,28 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./navbars.css";
-import {NavbarData} from "./NavbarData";
 import {useCookies} from 'react-cookie';
-import { Button } from "reactstrap";
 
 
 function Navbars() {
 
   const [token, setToken, removeToken] = useCookies(['mytoken'])
-  let navigate = useNavigate()
 
   const logoutBtn = () => {
-    removeToken(['mytoken'])
-    navigate("/")
-
+    removeToken(token['mytoken'])
   }
 
   return (
     <>
-    
-      <div className="navbar"></div>
       <nav className="nav-menu">
-        
         <div className="nav-menu-items">
-          <Link to='/mypage'>
-            <i className="profile fas fa-user-circle"></i>
-          </Link>
+
+          <ul>
+            <li><Link to="/home">HOME</Link></li>
+            <li><Link to="/doc">문서게시판</Link></li>
+          </ul>
+
+          {/*
           {
             NavbarData.map(item =>{
               return(
@@ -38,8 +34,9 @@ function Navbars() {
               )
             })
           }
+           */}
           
-          <Button color="default" size="sm" type='button' className="nav-menu-bottom" onClick={logoutBtn}>LOGOUT</Button>
+          <span className="nav-menu-bottom" onClick={()=>logoutBtn}>LOGOUT</span>
           
         </div>
 
