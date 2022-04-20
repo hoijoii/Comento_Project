@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbars.css";
-import {NavbarData} from "./NavbarData";
 import {useCookies} from 'react-cookie';
 
 
@@ -15,14 +14,15 @@ function Navbars() {
 
   return (
     <>
-    
-      <div className="navbar"></div>
       <nav className="nav-menu">
-        
         <div className="nav-menu-items">
-          <Link to='/mypage'>
-            <i className="profile fas fa-user-circle"></i>
-          </Link>
+
+          <ul>
+            <li><Link to="/home">HOME</Link></li>
+            <li><Link to="/doc">문서게시판</Link></li>
+          </ul>
+
+          {/*
           {
             NavbarData.map(item =>{
               return(
@@ -34,6 +34,7 @@ function Navbars() {
               )
             })
           }
+           */}
           
           <span className="nav-menu-bottom" onClick={()=>logoutBtn}>LOGOUT</span>
           

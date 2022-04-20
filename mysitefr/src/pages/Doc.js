@@ -35,11 +35,7 @@ function Doc() {
 
   return (
     <div className='doc'>  
-    <Navbars />  
-      <div className='path'>
-        <br/>
-        Board App Project {'>'} 문서게시판
-      </div>
+      <Navbars />  
       <div className='docTitle'>
         <h2>문서게시판</h2>
         <button onClick={clickMe} className='docBtn'>글쓰기</button>

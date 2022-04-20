@@ -1,18 +1,7 @@
-.path{
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.9);
-    font-size: 13px;
-    margin-left: 330px;
-    top:18px;
-    position: fixed;
-    height: 30px;
-    width: 100%;
-}
 
 .docTitle{
     font-size: 24px;
     align-items: center;
-    padding-left: 26%;
     margin-top: 200px;
     display: flex;
 }
@@ -29,11 +18,9 @@
 
 .docBody{
     padding-top: 3%;
-    margin-left: 300px;
 }
 
 table {
-    
     width: 90%;
     border-collapse: separate;
     border-spacing: 1px;
