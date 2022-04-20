@@ -21,6 +21,7 @@ export default class APIService {
         'Content-Type': 'application/json',
         'Authorization' : `Token ${token}`
             },
+<<<<<<< HEAD
         body: JSON.stringify(body)
         })
     .then(resp => resp.json())
@@ -34,6 +35,9 @@ export default class APIService {
         'Authorization' : `Token ${token}`
             },
         body: file
+=======
+        body:JSON.stringify(body)
+>>>>>>> develop
         })
     .then(resp => resp.json())
     }
@@ -71,6 +75,7 @@ export default class APIService {
 
         }).then(resp => resp.json())
     }
+<<<<<<< HEAD
 
     static UploadExcel(file, token) {
         return fetch('http://127.0.0.1:8000/filedata/', {
@@ -84,4 +89,6 @@ export default class APIService {
         }).then(resp => console.log("response:", resp))
         .catch(error=>console.log(error))
     }
+=======
+>>>>>>> develop
 }

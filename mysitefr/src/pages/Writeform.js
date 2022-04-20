@@ -3,7 +3,10 @@ import APIService from '../APIService'
 import {Link} from 'react-router-dom'
 import Navbars from '../components/Navbars'
 import {useCookies} from 'react-cookie';
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+>>>>>>> develop
 
 function Writeform() {
 
@@ -12,6 +15,7 @@ function Writeform() {
     const [startDay, setStartDay] = useState(new Date())
     const [endDay, setEndDay] = useState(new Date())
     const [writer, setWriter] = useState([])
+<<<<<<< HEAD
     const [formfile, setFormfile] = useState([])
     const [token] = useCookies(['mytoken'])
 
@@ -51,6 +55,14 @@ function Writeform() {
           }
         })
       } catch(e){ return e.response ? e.response : e}
+=======
+    const [token] = useCookies(['mytoken'])
+
+
+    const insertPost = () =>{
+        APIService.InsertPost({title, description, writer, startDay, endDay}, token['mytoken'])
+        .then(resp=>console.log(resp))
+>>>>>>> develop
     }
 
 
@@ -66,21 +78,34 @@ function Writeform() {
           <div className='mb-3'>
             <label htmlFor='title' className='textForm form-label'>제목</label>
             <input type='text' className='form-control' placeholder='Title' 
+<<<<<<< HEAD
                value={title || ''} onChange={onTitleChange}
+=======
+               value={title || ''} onChange={e=>setTitle(e.target.value)}
+>>>>>>> develop
             />
 
             <label htmlFor='title' className='textForm form-label'>본문</label>
             <textarea className='form-control' id='description' rows='5'
+<<<<<<< HEAD
               value = {description || ''} onChange={onDescriptionChange}>
+=======
+              value = {description || ''} onChange={e=>setDescription(e.target.value)}>
+>>>>>>> develop
             </textarea>
 
             <label htmlFor='title' className='textForm form-label'>작성자</label>
             <input type='text' className='form-control' placeholder='작성자' 
+<<<<<<< HEAD
               value = {writer || ''} onChange={onWriterChange}
+=======
+              value = {writer || ''} onChange={e=>setWriter(e.target.value)}
+>>>>>>> develop
             />
 
             <label htmlFor='title' className='textForm form-label'>취합기간</label>
             <input type='date' className='form-control' placeholder='시작 날짜' 
+<<<<<<< HEAD
               value = {startDay || ''} onChange={onStartDayChange}
             />
             <label htmlFor='title' className='textForm form-label'>~</label>
@@ -91,6 +116,13 @@ function Writeform() {
             <label htmlFor='title' className='textForm form-label'>첨부문서</label>
             <input type='file' className='form-control'
              onChange={onFormFileChange}
+=======
+              value = {startDay || ''} onChange={e=>setStartDay(e.target.value)}
+            />
+            <label htmlFor='title' className='textForm form-label'>~</label>
+            <input type='date' className='form-control' placeholder='시작 날짜' 
+              value = {endDay || ''} onChange={e=>setEndDay(e.target.value)}
+>>>>>>> develop
             />
             
             <br/>

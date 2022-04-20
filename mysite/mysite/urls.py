@@ -7,5 +7,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('api.urls')),
     path('', include('account.urls')),
+<<<<<<< HEAD
     path('auth/', obtain_auth_token)
+=======
+    path('auth/', obtain_auth_token),
+>>>>>>> develop
 ]

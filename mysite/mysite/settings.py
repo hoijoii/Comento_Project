@@ -1,6 +1,9 @@
 
 from pathlib import Path
+<<<<<<< HEAD
 import os
+=======
+>>>>>>> develop
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,13 +30,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
     'api',
     'account',
+<<<<<<< HEAD
     'import_export',
     'crispy_forms',
+=======
+>>>>>>> develop
 ]
 
 AUTH_USER_MODEL = 'account.User'
@@ -62,7 +72,11 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
+=======
+        'DIRS': [],
+>>>>>>> develop
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,7 +102,11 @@ DATABASES = {
     }
 }
 
+<<<<<<< HEAD
 DATE_INPUT_FORMATS = ['%Y-%m-%d']
+=======
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
+>>>>>>> develop
 
 
 # Password validation
@@ -129,9 +147,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+<<<<<<< HEAD
 MEDIA_URL= '/document/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'document')
 
+=======
+>>>>>>> develop
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

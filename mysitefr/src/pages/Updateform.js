@@ -16,7 +16,10 @@ function Updateform() {
   const [startDay, setStartDay] = useState(new Date())
   const [endDay, setEndDay] = useState(new Date())
   const [writer, setWriter] = useState(post.writer)
+<<<<<<< HEAD
   const [attachment, setAttachment] = useState(post.formfile)
+=======
+>>>>>>> develop
   const [token] = useCookies(['mytoken'])
 
 
@@ -38,13 +41,21 @@ function Updateform() {
     setDescription(post.description)
     setStartDay(post.startDay)
     setEndDay(post.endDay)  
+<<<<<<< HEAD
     setWriter(post.writer)
     setAttachment(post.formfile)
+=======
+    setWriter(post.writer)  
+>>>>>>> develop
   },[post])
 
 
   const updatePost = ()=>{
+<<<<<<< HEAD
     APIService.UpdatePost(id, {title, description, writer, attachment}, token['mytoken'])
+=======
+    APIService.UpdatePost(id, {title, description, writer}, token['mytoken'])
+>>>>>>> develop
     .then(resp=>console.log(resp))
   }
 
@@ -73,11 +84,14 @@ function Updateform() {
             <input type='text' className='form-control' placeholder='작성자' 
               value = {writer || ''} onChange={e=>setWriter(e.target.value)}
             />
+<<<<<<< HEAD
 
             <label htmlFor='title' className='textForm form-label'>첨부파일</label>
             <input type='file' className='form-control' 
               value = {attachment} onChange={e=>setAttachment(e.target.value)}
             />
+=======
+>>>>>>> develop
             
             <br/>
             <Link to={`/detail/${id}`}>

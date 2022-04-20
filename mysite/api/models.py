@@ -1,6 +1,9 @@
 from django.db import models
+<<<<<<< HEAD
 from django.db.models import Sum
 from django import forms
+=======
+>>>>>>> develop
 
 # Create your models here.
 class Post(models.Model):
@@ -10,11 +13,15 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     startDay = models.DateField(blank=True, null=True)
     endDay = models.DateField(blank=True, null=True)
+<<<<<<< HEAD
     formfile = models.FileField(upload_to="", blank=True, null=True)
+=======
+>>>>>>> develop
     def __str__(self):
         return self.title
 
 class File(models.Model):
+<<<<<<< HEAD
     title = models.CharField(default='filename', blank=True, max_length=255)
     file = models.FileField(upload_to="", null=True)
     uploader = models.CharField(max_length=10, blank=True)
@@ -33,3 +40,11 @@ class Filedata(models.Model):
 
     def __str__(self):
         return self.companyName
+=======
+    title = models.CharField(default='filename', max_length=255)
+    files = models.FileField(upload_to="documents", null=True)
+    uploader = models.CharField(max_length=10)
+    upload_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.title
+>>>>>>> develop

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from .models import Post, File, Filedata
 from .serializers import PostSerializer, FileSerializer, FiledataSerializer
 from django.core import serializers
@@ -19,6 +20,17 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 
+=======
+from .models import Post, File
+from .serializers import PostSerializer, FileSerializer
+from rest_framework import viewsets
+from django.http import FileResponse
+from django.core.files.storage import FileSystemStorage
+import os
+
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+>>>>>>> develop
 
 # Create your views here.
 
@@ -26,7 +38,12 @@ from rest_framework.decorators import api_view, permission_classes, authenticati
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+<<<<<<< HEAD
 
+=======
+    permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
+>>>>>>> develop
 
 post_detail = PostViewSet.as_view({
     'get': 'retrieve',
@@ -43,6 +60,7 @@ file_detail = FileViewSet.as_view({
         'get': 'retrieve',
     })
 
+<<<<<<< HEAD
 @csrf_exempt
 @api_view(['GET', 'POST'])
 def import_data_to_db(request):
@@ -85,10 +103,13 @@ def import_data_to_db(request):
         print(identifier)
 
     return HttpResponse(status=401)
+=======
+>>>>>>> develop
 
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -143,6 +164,8 @@ class ImportExcel(APIView):
 '''
 
 
+=======
+>>>>>>> develop
 '''
 @csrf_exempt
 def article_details(request, pk):

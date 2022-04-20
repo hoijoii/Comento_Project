@@ -4,19 +4,31 @@ import './detail.css'
 import APIService from '../APIService'
 import Uploadform from './Uploadform'
 import Navbars from '../components/Navbars'
+<<<<<<< HEAD
 import {useCookies} from 'react-cookie'
 import Statistics from '../components/Statistics'
 import { Button } from "reactstrap";
+=======
+import {useCookies} from 'react-cookie';
+>>>>>>> develop
 
 const Detail = () => {
 
   const {id} = useParams()
 
   const [post, setPost] = useState([])
+<<<<<<< HEAD
   const [excelData, setExcelData] =useState([])
   const [isStatistics, setIsStatistics] = useState(true)
   const [token] = useCookies(['mytoken'])
 
+=======
+  const [files, setFiles] =useState([])
+  const [token] = useCookies(['mytoken'])
+
+  let navigate = useNavigate()
+
+>>>>>>> develop
   useEffect(()=>{
     fetch(`http://127.0.0.1:8000/api/posts/${id}`, {
       'method':'GET',
@@ -30,7 +42,11 @@ const Detail = () => {
   }, [])
   
   useEffect(()=>{
+<<<<<<< HEAD
     fetch('http://127.0.0.1:8000/filedata/', {
+=======
+    fetch('http://127.0.0.1:8000/api/files/', {
+>>>>>>> develop
       'method':'GET',
       headers: {
         'Content-Type':'application',
@@ -38,9 +54,17 @@ const Detail = () => {
       }
     })
     .then(resp => resp.json())
+<<<<<<< HEAD
     .then(resp=>setExcelData(resp))
     .catch(error => console.log(error))
   }, [])
+=======
+    .then(resp=>setFiles(resp))
+    .catch(error => console.log(error))
+  }, [])
+  
+  files.sort((a, b)=> b.id - a.id)
+>>>>>>> develop
 
   return (
     <div className='detail'>
@@ -62,6 +86,7 @@ const Detail = () => {
       <br/>
       <br/>
       <div className='detailBottom'>
+<<<<<<< HEAD
         <br/>
         <span className='detailDescription'>{post.description}</span>  
         <br/>
@@ -70,6 +95,12 @@ const Detail = () => {
       <span className='detailattach'>엑셀 양식.xlsx</span>
       <br/>
       <br/>
+=======
+        <span className='detailDescription'>{post.description}</span>  
+        <br/>
+        <br/>
+      </div>
+>>>>>>> develop
       <hr className='hrclass'/>
 
       <div className='detailbtns'>
@@ -85,6 +116,7 @@ const Detail = () => {
         <br/>
         <Uploadform postid={post.id}/>
       </div>
+<<<<<<< HEAD
 
 
       <br/>
@@ -120,11 +152,32 @@ const Detail = () => {
                 <td className='detailExcelDataTbody'>{data.revenue}</td>
                 <td className='detailExcelDataTbody'>{data.operatingIncome}</td>
                 <td className='detailExcelDataTbody'>{data.netIncome}</td>
+=======
+      <br/>
+      <br/>
+
+      <div className='detailFiles'>
+        <table className='detailFilesTable'>
+          <thead>
+            <tr>
+              <th scope='col'> </th>
+              <th scope='col'> </th>
+              <th scope='col'> </th>
+            </tr>
+          </thead>
+          <tbody>
+            {files.map(file=>
+              <tr key={file.id}>
+                <td scope='row'>{file.upload_at.substring(10, 0)}</td>
+                <td className='fileTitle'>{file.title}</td>
+                <td>{file.uploader}(회사번호)</td>
+>>>>>>> develop
               </tr>
             )}
           </tbody>
         </table>
       </div>
+<<<<<<< HEAD
       
     :
       <div className='detailExcelDatas'>
@@ -134,6 +187,8 @@ const Detail = () => {
     }
 
       
+=======
+>>>>>>> develop
     </div>
   )
 }
