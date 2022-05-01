@@ -1,25 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbars.css";
-import {useCookies} from 'react-cookie';
-
+import { useCookies } from "react-cookie";
 
 function Navbars() {
-
-  const [token, setToken, removeToken] = useCookies(['mytoken'])
+  const [token, setToken, removeToken] = useCookies(["mytoken"]);
 
   const logoutBtn = () => {
-    removeToken(token['mytoken'])
-  }
+    removeToken(token["mytoken"]);
+  };
 
   return (
     <>
       <nav className="nav-menu">
         <div className="nav-menu-items">
-
           <ul>
-            <li><Link to="/home">HOME</Link></li>
-            <li><Link to="/doc">문서게시판</Link></li>
+            <li>
+              <Link to="/home">HOME</Link>
+            </li>
+            <li>
+              <Link to="/doc">문서게시판</Link>
+            </li>
           </ul>
 
           {/*
@@ -35,14 +36,14 @@ function Navbars() {
             })
           }
            */}
-          
-          <span className="nav-menu-bottom" onClick={()=>logoutBtn}>LOGOUT</span>
-          
-        </div>
 
+          <span className="nav-menu-bottom" onClick={() => logoutBtn}>
+            LOGOUT
+          </span>
+        </div>
       </nav>
     </>
-  )
+  );
 }
 
-export default Navbars
+export default Navbars;
