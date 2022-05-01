@@ -2,10 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1366eb5-85e5-49f2-b8f1-065d37725e83" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/엑셀_양식.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/엑셀_양식_e1jgTm9.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/엑셀_양식_n9iIXBP.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/엑셀양식.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/엑셀양식_Iahl1ut.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/엑셀양식_kv5uRWo.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents/008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents/매출관리자료.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents/매출관리자료_-_복사본.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents/매출관리자료_-_복사본_-_복사본.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/APIService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/APIService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mysitefr/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysitefr/src/components/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/components/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/components/Navbars.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/components/Navbars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/Board.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/pages/Board.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/Detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/pages/Detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/Doc.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/pages/Doc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/Notice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/Updateform.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/pages/Updateform.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/Uploadform.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/pages/Uploadform.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/Writeform.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/pages/Writeform.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/pages/detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/doc.css" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/pages/doc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysitefr/src/pages/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/../mysitefr/src/pages/form.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +61,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
