@@ -1,0 +1,133 @@
+.path{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+    margin-left: 330px;
+    top:0px;
+    position: fixed;
+    height: 36px;
+    width: 100%;
+}
+
+.detailTop{
+    margin-top: 230px;
+    padding-left: 25%;
+}
+
+.detailTitle{
+    font-size: 24px;
+    align-items: center;
+    display: flex;
+    padding-bottom: 1%;
+}
+
+.detailDate{
+    font-size: 13px;
+    
+}
+
+.detailWriter{
+    font-size: 12.5px;
+    padding-left: 60%;
+}
+
+.hrclass{
+    border: 0.2;
+    width: 63%;
+    background-color: rgb(156, 156, 156);
+    margin-left: 345px;
+}
+
+.detailBottom{
+    font-size: 15px;
+    padding-left: 25%;
+    margin-bottom: 100px;
+}
+
+.detailattach{
+    color:rgba(0, 17, 255, 0.9);
+    font-size: 12.5px;
+    padding-left: 25%;
+    text-decoration: underline;
+}
+
+.detailbtns{
+    padding-left: 25%;
+    margin-top: 20px;
+}
+
+.detailBtnUpdate, .detailBtnDelete{
+    font-size: 12px;
+    border: none;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.detailBtnDelete{
+    margin-left: 8px;
+}
+
+.detailBtnRequest{
+    border: none;
+    font-size: 12px;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    margin-left: 630px;
+    cursor: pointer;
+}
+
+.detailBtnUpload{
+    font-size: 12px;
+    border: none;
+    width: 70px;
+    height: 28px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.DocModeButton{
+    margin-left: 350px;
+    
+}
+
+.modeButton{
+    font-size: 13px;
+    border: none;
+    width: 130px;
+    height: 40px;
+}
+
+.detailExcelDatas{
+    margin-left: 350px;
+    margin-bottom: 50px;
+    border: 1px solid #333333;
+    height: 300px;
+    width: 980px;
+    overflow: scroll;
+}
+
+.detailExcelDatasTable{
+    table-layout: fixed;
+    width: 90%;
+    border-spacing: 1px;
+    line-height: 1.5;   
+}
+
+.detailExcelDataThead{
+    font-size: 14px;
+    padding:15px;
+    color: rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(51, 51, 51);
+    border : 1px solid #444444;
+    text-align: center; 
+}
+
+.detailExcelDataTbody{
+    font-size: 14px;
+    padding: 7px;
+    text-align: center; 
+    border: 1px solid #444444;
+}
+
