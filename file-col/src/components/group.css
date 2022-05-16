@@ -1,0 +1,20 @@
+.group {
+    display: flex;
+    margin-top: 30px;
+}
+
+.groupBox {
+    border : 1px solid rgb(122, 122, 122);
+    display : inline;
+    margin-left: 10px;
+    height: 200px;
+    width: 200px;
+    }
+
+
+@media(max-width: 1113px) {
+    .group{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
