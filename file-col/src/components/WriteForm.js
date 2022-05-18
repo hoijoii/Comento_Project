@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { UserContext } from "../contexts/userContext";
+import { useUserState, useUserDispatch } from "../contexts/userContext";
 
 const reducer = (state, action) => {
   return {
@@ -24,6 +25,8 @@ const WriteForm = () => {
 
   const { title, description, startDay, endDay } = state;
 
+  const user_dispatch = useUserDispatch();
+
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:8000/account/users/`, {
@@ -35,12 +38,11 @@ const WriteForm = () => {
       .catch((Error) => {
         console.log(Error);
       });
-
-    searchWriter();
   }, []);
 
-  const userIdContext = useContext(UserContext);
-  console.log(userIdContext);
+  const userIdContext = useUserState();
+
+  //console.log(userIdContext);
 
   const onChange = (e) => {
     dispatch(e.target);
@@ -50,12 +52,18 @@ const WriteForm = () => {
 
   const searchWriter = () => {
     users.map((user) => {
-      if (user.email === userIdContext.user) {
-        setWriter(user.id);
-        //return user.id;
+      console.log("User Email Map: " + user.email);
+
+      if (user.email === localStorage.userEmail) {
+        //setWriter(user.id);
+        return user.email;
       }
     });
   };
+
+  console.log(users);
+  console.log(localStorage.userEmail);
+  console.log(searchWriter());
 
   const insertPost = async () => {
     try {
@@ -117,6 +125,7 @@ const WriteForm = () => {
           <button
             onClick={() => {
               navigate("/");
+              searchWriter();
               insertPost();
             }}
             className="btn btn-success"

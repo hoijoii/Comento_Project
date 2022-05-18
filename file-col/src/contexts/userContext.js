@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 
 const initState = {
-  user: null,
+  user: "initial User",
 };
 
 const reducer = (state, action) => {

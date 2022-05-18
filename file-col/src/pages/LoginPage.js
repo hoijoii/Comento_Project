@@ -33,6 +33,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (token["mytoken"]) {
+      localStorage.setItem("userEmail", username);
       navigate("/home");
 
       dispatch({

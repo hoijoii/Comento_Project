@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { UserContext } from "../contexts/userContext";
+import { useUserState } from "../contexts/userContext";
 import axios from "axios";
 
 const Detail = () => {
@@ -11,7 +12,7 @@ const Detail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const userIdContext = useContext(UserContext);
+  const userIdContext = useUserState();
 
   console.log(userIdContext);
 
