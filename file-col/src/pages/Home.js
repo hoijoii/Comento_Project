@@ -23,7 +23,7 @@ const Home = () => {
     <div className="home">
       <div className="homeTitle">
         <h1>File Collection Project</h1>
-        <h6>{localStorage.user}님, 환영합니다!</h6>
+        <h6>{localStorage.username}님, 환영합니다!</h6>
       </div>
       <div className="homeSubTitle1">
         <h5>내가 만든 문서 그룹</h5>

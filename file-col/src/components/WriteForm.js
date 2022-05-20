@@ -1,8 +1,7 @@
-import React, { useReducer, useContext, useState, useEffect } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import { UserContext } from "../contexts/userContext";
 import { useUserState, useUserDispatch } from "../contexts/userContext";
 
 const reducer = (state, action) => {
@@ -27,6 +26,14 @@ const WriteForm = () => {
 
   const user_dispatch = useUserDispatch();
 
+  const userIdContext = useUserState();
+
+  const onChange = (e) => {
+    dispatch(e.target);
+  };
+
+  let navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:8000/account/users/`, {
@@ -40,30 +47,17 @@ const WriteForm = () => {
       });
   }, []);
 
-  const userIdContext = useUserState();
-
-  //console.log(userIdContext);
-
-  const onChange = (e) => {
-    dispatch(e.target);
-  };
-
-  let navigate = useNavigate();
+  useEffect(() => {
+    searchWriter();
+  });
 
   const searchWriter = () => {
     users.map((user) => {
-      console.log("User Email Map: " + user.email);
-
-      if (user.email === localStorage.userEmail) {
-        //setWriter(user.id);
-        return user.email;
+      if (user.id === JSON.parse(localStorage.userId)) {
+        setWriter(user.id);
       }
     });
   };
-
-  console.log(users);
-  console.log(localStorage.userEmail);
-  console.log(searchWriter());
 
   const insertPost = async () => {
     try {
@@ -125,7 +119,6 @@ const WriteForm = () => {
           <button
             onClick={() => {
               navigate("/");
-              searchWriter();
               insertPost();
             }}
             className="btn btn-success"

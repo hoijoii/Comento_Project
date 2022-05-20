@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
+import axios from "axios";
 import LoginService from "../LoginService";
 import "./loginPage.css";
 import { useUserState, useUserDispatch } from "../contexts/userContext";
 
 const LoginPage = () => {
   const [token, setToken] = useCookies(["mytoken"]);
+  const [users, setUsers] = useState([]);
   const [isLogin, setLogin] = useState(true);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -18,6 +20,19 @@ const LoginPage = () => {
   const dispatch = useUserDispatch();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/account/users/`, {
+        headers: {
+          Authorization: `Token ${token["mytoken"]}`,
+        },
+      })
+      .then((resp) => setUsers(resp.data))
+      .catch((Error) => {
+        console.log(Error);
+      });
+  }, []);
 
   const loginBtn = () => {
     LoginService.LoginUser({ username, password })
@@ -31,9 +46,18 @@ const LoginPage = () => {
       .catch((error) => console.log(error));
   };
 
+  const searchId = () => {
+    users.map((user) => {
+      if (user.email === username) {
+        localStorage.setItem("userId", user.id);
+      }
+    });
+  };
+
   useEffect(() => {
     if (token["mytoken"]) {
-      localStorage.setItem("userEmail", username);
+      localStorage.setItem("username", username);
+      searchId();
       navigate("/home");
 
       dispatch({
