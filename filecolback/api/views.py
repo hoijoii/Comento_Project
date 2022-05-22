@@ -16,8 +16,8 @@ from rest_framework.permissions import IsAuthenticated
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    #permission_classes = [IsAuthenticated]
-    #authentication_classes = (TokenAuthentication,)
+    permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
 
 post_detail = PostViewSet.as_view({
     'get': 'retrieve',
@@ -27,8 +27,8 @@ post_detail = PostViewSet.as_view({
 class FileViewSet(viewsets.ModelViewSet):
     queryset = File.objects.all()
     serializer_class = FileSerializer
-    #permission_classes = [IsAuthenticated]
-    #authentication_classes = (TokenAuthentication,)
+    permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
 
 file_detail = FileViewSet.as_view({
         'get': 'retrieve',

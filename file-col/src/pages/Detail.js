@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
+import UploadForm from "../components/UploadForm";
 
 const Detail = () => {
   const [post, setPost] = useState([]);
@@ -62,34 +63,39 @@ const Detail = () => {
           </div>
         </div>
       </div>
+
       <div className="detailBody">
         <p>{post.description}</p>
+        <button
+          onClick={() => {
+            navigate(`/updating/${id}`);
+          }}
+          className="btn btn-success"
+        >
+          수정
+        </button>
+        <button
+          onClick={() => {
+            navigate(`/home`);
+          }}
+          className="btn btn-success"
+        >
+          이전
+        </button>
+        <button
+          onClick={() => {
+            navigate("/");
+            deletePost();
+          }}
+          className="btn btn-success"
+        >
+          삭제
+        </button>
       </div>
-      <button
-        onClick={() => {
-          navigate(`/updating/${id}`);
-        }}
-        className="btn btn-success"
-      >
-        수정
-      </button>
-      <button
-        onClick={() => {
-          navigate(`/home`);
-        }}
-        className="btn btn-success"
-      >
-        이전
-      </button>
-      <button
-        onClick={() => {
-          navigate("/");
-          deletePost();
-        }}
-        className="btn btn-success"
-      >
-        삭제
-      </button>
+
+      <div className="detail">
+        <UploadForm postId={id} />
+      </div>
     </div>
   );
 };
