@@ -5,7 +5,6 @@ import { Button } from "reactstrap";
 import axios from "axios";
 import LoginService from "../LoginService";
 import "./loginPage.css";
-import { useUserState, useUserDispatch } from "../contexts/userContext";
 
 const LoginPage = () => {
   const [token, setToken] = useCookies(["mytoken"]);
@@ -16,8 +15,6 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [realname, setRealname] = useState("");
   const [companyCode, setCompanyCode] = useState("");
-
-  const dispatch = useUserDispatch();
 
   const navigate = useNavigate();
 
@@ -59,11 +56,6 @@ const LoginPage = () => {
       localStorage.setItem("username", username);
       searchId();
       navigate("/home");
-
-      dispatch({
-        type: "LOGIN",
-        user: username,
-      });
     }
   }, [token]);
 

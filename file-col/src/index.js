@@ -10,7 +10,6 @@ import Detail from "./pages/Detail";
 import PostingPage from "./pages/PostingPage";
 import UpdatePage from "./pages/UpdatePage";
 import LoginPage from "./pages/LoginPage";
-import { UserProvider } from "./contexts/userContext";
 
 function Router() {
   return (
@@ -30,9 +29,9 @@ function Router() {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <UserProvider>
+  <>
     <Router />
-  </UserProvider>
+  </>
 );
 
 reportWebVitals();

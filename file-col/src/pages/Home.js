@@ -1,17 +1,12 @@
-import React, { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { UserContext } from "../contexts/userContext";
 import Group from "../components/Group";
-import { useUserState } from "../contexts/userContext";
 import "./home.css";
 
 const Home = () => {
   const [token] = useCookies(["mytoken"]);
   let navigate = useNavigate();
-
-  const userIdContext = useUserState();
-  console.log(userIdContext);
 
   useEffect(() => {
     if (!token["mytoken"]) {

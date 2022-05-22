@@ -2,7 +2,6 @@ import React, { useReducer, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import { useUserState, useUserDispatch } from "../contexts/userContext";
 
 const reducer = (state, action) => {
   return {
@@ -23,10 +22,6 @@ const WriteForm = () => {
   });
 
   const { title, description, startDay, endDay } = state;
-
-  const user_dispatch = useUserDispatch();
-
-  const userIdContext = useUserState();
 
   const onChange = (e) => {
     dispatch(e.target);
