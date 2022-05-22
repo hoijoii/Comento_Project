@@ -4,14 +4,16 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 
 const UpdateForm = () => {
+  const { id } = useParams();
+  const [token] = useCookies(["mytoken"]);
+  const [users, setUsers] = useState([]);
   const [post, setPost] = useState("");
   const [title, setTitle] = useState(post.title);
   const [description, setDescription] = useState(post.description);
   const [startDay, setStartDay] = useState(post.startDay);
   const [endDay, setEndDay] = useState(post.endDay);
   const [writer, setWriter] = useState(post.writer);
-  const { id } = useParams();
-  const [token] = useCookies(["mytoken"]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,6 +30,19 @@ const UpdateForm = () => {
   }, []);
 
   useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/account/users/`, {
+        headers: {
+          Authorization: `Token ${token["mytoken"]}`,
+        },
+      })
+      .then((resp) => setUsers(resp.data))
+      .catch((Error) => {
+        console.log(Error);
+      });
+  }, []);
+
+  useEffect(() => {
     setTitle(post.title);
     setDescription(post.description);
     setStartDay(post.startDay);
@@ -35,14 +50,27 @@ const UpdateForm = () => {
     setWriter(post.writer);
   }, [post]);
 
+  useEffect(() => {
+    searchWriter();
+  });
+
+  const searchWriter = () => {
+    users.map((user) => {
+      if (user.id === JSON.parse(localStorage.userId)) {
+        setWriter(user.id);
+      }
+    });
+  };
+
   const updatePost = async () => {
     try {
       return await axios.put(
-        `http://127.0.0.1:8000/api/posts/${id}`,
-        { title, description, startDay, endDay, writer },
+        `http://127.0.0.1:8000/api/posts/${id}/`,
+        { title, description, startDay, endDay },
         {
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Token ${token["mytoken"]}`,
           },
         }
       );
@@ -91,14 +119,6 @@ const UpdateForm = () => {
                 className="form-control"
                 value={endDay || ""}
                 onChange={(e) => setEndDay(e.target.value)}
-              />
-              <input
-                name="writer"
-                type="text"
-                className="form-control"
-                placeholder="사용자 이름을 입력하세요"
-                value={writer || ""}
-                onChange={(e) => setWriter(e.target.value)}
               />
               <button
                 onClick={() => {

@@ -16,8 +16,8 @@ from rest_framework.permissions import IsAuthenticated
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [IsAuthenticated]
-    authentication_classes = (TokenAuthentication,)
+    #permission_classes = [IsAuthenticated]
+    #authentication_classes = (TokenAuthentication,)
 
 post_detail = PostViewSet.as_view({
     'get': 'retrieve',
