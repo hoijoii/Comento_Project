@@ -32,6 +32,18 @@ const Detail = () => {
       });
   }, []);
 
+  const deletePost = async () => {
+    try {
+      return await axios.delete(`http://127.0.0.1:8000/api/posts/${id}/`, {
+        headers: {
+          Authorization: `Token ${token["mytoken"]}`,
+        },
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div>
       <div className="detailTop">
@@ -68,6 +80,15 @@ const Detail = () => {
         className="btn btn-success"
       >
         이전
+      </button>
+      <button
+        onClick={() => {
+          navigate("/");
+          deletePost();
+        }}
+        className="btn btn-success"
+      >
+        삭제
       </button>
     </div>
   );

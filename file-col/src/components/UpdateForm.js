@@ -78,6 +78,7 @@ const UpdateForm = () => {
       return e.response ? e.response : e;
     }
   };
+
   return (
     <div>
       {post ? (
@@ -122,7 +123,7 @@ const UpdateForm = () => {
               />
               <button
                 onClick={() => {
-                  navigate("/");
+                  navigate("/home");
                   updatePost();
                 }}
                 className="btn btn-success"
