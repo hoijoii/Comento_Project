@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import UploadForm from "../components/UploadForm";
+import FileList from "../components/FileList";
 
 const Detail = () => {
   const [post, setPost] = useState([]);
@@ -93,8 +94,14 @@ const Detail = () => {
         </button>
       </div>
 
+      <hr />
+
       <div className="detail">
         <UploadForm postId={id} />
+      </div>
+
+      <div className="fileList">
+        <FileList postId={id} />
       </div>
     </div>
   );

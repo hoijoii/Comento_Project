@@ -29,7 +29,7 @@ const UploadForm = ({ postId }) => {
     dispatch(e.target);
   };
 
-  let navigate = useNavigate();
+  //let navigate = useNavigate();
 
   useEffect(() => {
     axios

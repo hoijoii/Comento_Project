@@ -12,5 +12,5 @@ router.register('users', UserViewSet, basename='users')
 urlpatterns = [
     path('api/', include(router.urls)),
     path('posts/<int:id>/', views.post_detail),
-    path('api/files/', views.file_detail)
+    path('files/<int:id>', views.file_detail)
 ]
