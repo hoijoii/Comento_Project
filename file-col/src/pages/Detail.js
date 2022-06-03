@@ -8,6 +8,7 @@ import FileList from "../components/FileList";
 const Detail = () => {
   const [post, setPost] = useState([]);
   const [users, setUsers] = useState([]);
+  const [isWriter, setWriter] = useState(false);
   const [token] = useCookies(["mytoken"]);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -34,6 +35,10 @@ const Detail = () => {
       });
   }, []);
 
+  useEffect(() => {
+    handleWriter();
+  }, []);
+
   const deletePost = async () => {
     try {
       return await axios.delete(`http://127.0.0.1:8000/api/posts/${id}/`, {
@@ -46,12 +51,11 @@ const Detail = () => {
     }
   };
 
-  const isWriter = () => {
-    users.map((user) => {
-      if (user.id === post.writer) {
-        return true;
-      }
-    });
+  const handleWriter = () => {
+    if (JSON.parse(localStorage.userId) !== post.id) {
+      console.log(localStorage.userId, post.id);
+      setWriter(true);
+    }
   };
 
   return (
@@ -75,24 +79,30 @@ const Detail = () => {
 
       <div className="detailBody">
         <p>{post.description}</p>
-        {isWriter}
-        <button
-          onClick={() => {
-            navigate(`/updating/${id}`);
-          }}
-          className="btn btn-success"
-        >
-          수정
-        </button>
-        <button
-          onClick={() => {
-            navigate("/");
-            deletePost();
-          }}
-          className="btn btn-success"
-        >
-          삭제
-        </button>
+        {isWriter ? (
+          <div>
+            <button
+              onClick={() => {
+                navigate(`/updating/${id}`);
+              }}
+              className="btn btn-success"
+            >
+              수정
+            </button>
+            <button
+              onClick={() => {
+                navigate("/");
+                deletePost();
+              }}
+              className="btn btn-success"
+            >
+              삭제
+            </button>
+          </div>
+        ) : (
+          <div></div>
+        )}
+
         <button
           onClick={() => {
             navigate(`/home`);

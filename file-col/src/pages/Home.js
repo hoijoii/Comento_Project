@@ -5,7 +5,7 @@ import Group from "../components/Group";
 import "./home.css";
 
 const Home = () => {
-  const [token] = useCookies(["mytoken"]);
+  const [token, setToken, removeToken] = useCookies(["mytoken"]);
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -14,10 +14,17 @@ const Home = () => {
     }
   }, [token]);
 
+  const logoutBtn = () => {
+    removeToken(token["mytoken"]);
+  };
+
   return (
     <div className="home">
       <div className="homeTitle">
         <h1>File Collection Project</h1>
+        <a href="/" onClick={() => logoutBtn}>
+          로그아웃
+        </a>
       </div>
       <div className="homeSubTitle1">
         <h5>내가 만든 문서 그룹</h5>

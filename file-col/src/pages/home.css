@@ -3,8 +3,9 @@
 }
 
 .homeTitle{
+    display: flex;
     padding-top: 30px;
-    text-align: center;
+    justify-content: center;
     border-bottom: 2px solid rgb(21, 4, 51);
 }
 
