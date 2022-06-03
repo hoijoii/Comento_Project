@@ -46,6 +46,14 @@ const Detail = () => {
     }
   };
 
+  const isWriter = () => {
+    users.map((user) => {
+      if (user.id === post.writer) {
+        return true;
+      }
+    });
+  };
+
   return (
     <div>
       <div className="detailTop">
@@ -67,6 +75,7 @@ const Detail = () => {
 
       <div className="detailBody">
         <p>{post.description}</p>
+        {isWriter}
         <button
           onClick={() => {
             navigate(`/updating/${id}`);
@@ -77,20 +86,20 @@ const Detail = () => {
         </button>
         <button
           onClick={() => {
-            navigate(`/home`);
-          }}
-          className="btn btn-success"
-        >
-          이전
-        </button>
-        <button
-          onClick={() => {
             navigate("/");
             deletePost();
           }}
           className="btn btn-success"
         >
           삭제
+        </button>
+        <button
+          onClick={() => {
+            navigate(`/home`);
+          }}
+          className="btn btn-success"
+        >
+          홈으로
         </button>
       </div>
 

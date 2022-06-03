@@ -123,7 +123,7 @@ const UpdateForm = () => {
               />
               <button
                 onClick={() => {
-                  navigate("/home");
+                  navigate(`/detail/${id}`);
                   updatePost();
                 }}
                 className="btn btn-success"
