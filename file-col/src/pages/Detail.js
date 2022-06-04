@@ -109,7 +109,7 @@ const Detail = () => {
           }}
           className="btn btn-success"
         >
-          홈으로
+          이전
         </button>
       </div>
 
