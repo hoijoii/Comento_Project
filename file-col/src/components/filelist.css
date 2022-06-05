@@ -1,8 +1,12 @@
 
+.fileTable {
+    margin: 50px;
+}
+
 .fileTable .head {
     text-align: center;
 }
 
-.fileTable .bodyUser{
+.fileTable .body{
     text-align: center;
 }
