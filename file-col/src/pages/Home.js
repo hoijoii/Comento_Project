@@ -15,16 +15,14 @@ const Home = () => {
   }, [token]);
 
   const logoutBtn = () => {
-    removeToken(token["mytoken"]);
+    removeToken("mytoken", { path: "/" });
   };
 
   return (
     <div className="home">
       <div className="homeTitle">
         <h1>File Collection Project</h1>
-        <a href="/" onClick={() => logoutBtn}>
-          로그아웃
-        </a>
+        <button onClick={logoutBtn}>로그아웃</button>
       </div>
       <div className="homeSubTitle1">
         <h5>내가 만든 문서 그룹</h5>

@@ -37,6 +37,7 @@ const Detail = () => {
 
   useEffect(() => {
     handleWriter();
+    console.log(post.title);
   }, []);
 
   const deletePost = async () => {
@@ -52,8 +53,7 @@ const Detail = () => {
   };
 
   const handleWriter = () => {
-    if (JSON.parse(localStorage.userId) !== post.id) {
-      console.log(localStorage.userId, post.id);
+    if (JSON.parse(localStorage.userId) === post.writer) {
       setWriter(true);
     }
   };
