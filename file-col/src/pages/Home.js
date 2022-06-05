@@ -16,6 +16,8 @@ const Home = () => {
 
   const logoutBtn = () => {
     removeToken("mytoken", { path: "/" });
+    localStorage.removeItem("username");
+    localStorage.removeItem("userId");
   };
 
   return (
