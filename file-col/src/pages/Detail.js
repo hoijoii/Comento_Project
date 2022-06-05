@@ -8,7 +8,6 @@ import FileList from "../components/FileList";
 const Detail = () => {
   const [post, setPost] = useState([]);
   const [users, setUsers] = useState([]);
-  const [isWriter, setWriter] = useState(false);
   const [token] = useCookies(["mytoken"]);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -35,11 +34,6 @@ const Detail = () => {
       });
   }, []);
 
-  useEffect(() => {
-    handleWriter();
-    console.log(post.title);
-  }, []);
-
   const deletePost = async () => {
     try {
       return await axios.delete(`http://127.0.0.1:8000/api/posts/${id}/`, {
@@ -49,12 +43,6 @@ const Detail = () => {
       });
     } catch (e) {
       console.log(e);
-    }
-  };
-
-  const handleWriter = () => {
-    if (JSON.parse(localStorage.userId) === post.writer) {
-      setWriter(true);
     }
   };
 
@@ -79,7 +67,7 @@ const Detail = () => {
 
       <div className="detailBody">
         <p>{post.description}</p>
-        {isWriter ? (
+        {JSON.parse(localStorage.userId) === post.writer ? (
           <div>
             <button
               onClick={() => {
