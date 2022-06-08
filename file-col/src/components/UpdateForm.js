@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";

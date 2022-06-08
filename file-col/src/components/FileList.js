@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 import "./filelist.css";
+import FileDownload from "./FileDownload";
 
 const FileList = ({ postId }) => {
   const [files, setFiles] = useState([]);
@@ -39,6 +40,7 @@ const FileList = ({ postId }) => {
             <th>제목</th>
             <th>업로드 날짜</th>
             <th>작성자</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -54,6 +56,9 @@ const FileList = ({ postId }) => {
                         return user.realname;
                       }
                     })}
+                  </td>
+                  <td>
+                    <FileDownload fileId={file.id} />
                   </td>
                 </tr>
               );
