@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { saveAs } from "file-saver";
+import fileDownload from "js-file-download";
 
 const FileDownload = ({ fileId }) => {
   const [fileData, setFileData] = useState("");
@@ -8,15 +8,17 @@ const FileDownload = ({ fileId }) => {
     return await axios
       .get(`http://127.0.0.1:8000/api/files/${fileId}`, {
         headers: {
-          "Content-Type": "application/xls",
+          "Content-Type": "application/xlsx",
           //Authorization: `Token ${token["mytoken"]}`,
         },
       })
-      .then((resp) => setFileData(resp.data))
+      .then((resp) => {
+        fileDownload(resp.data.files, resp.data.title);
+      })
       /*
       .then((resp) => {
-        console.log(resp.data);
-        resp.blob().then((blob) => {
+        console.log(resp.data.files);
+        resp.data.files.blob().then((blob) => {
           let url = window.URL.createObjectURL(blob);
           let a = document.createElement("a");
           a.href = url;
@@ -28,9 +30,10 @@ const FileDownload = ({ fileId }) => {
         console.log(Error);
       });
   };
+
   return (
     <div>
-      <button onClick={saveFile}>다운로드</button>
+      <button onClick={saveFile}>다운</button>
     </div>
   );
 };
