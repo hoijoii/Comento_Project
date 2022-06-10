@@ -35,9 +35,9 @@ const Group = () => {
       });
   }, []);
 
-  if (posts.length === 0) return <p>게시글이 없습니다.</p>;
-
   posts.sort((a, b) => b.id - a.id);
+
+  if (posts.length === 0) return <p>게시글이 없습니다.</p>;
 
   return (
     <div>

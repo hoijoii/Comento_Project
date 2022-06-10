@@ -10,3 +10,11 @@
 .fileTable .body{
     text-align: center;
 }
+
+@media(max-width: 573px){
+    .fileTable{
+        display: flex;
+        flex-wrap: wrap;
+        width: 473px;
+    }
+}
