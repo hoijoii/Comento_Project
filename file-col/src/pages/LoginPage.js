@@ -61,7 +61,7 @@ const LoginPage = () => {
 
   return (
     <div>
-      <div className="Loginform">
+      <div className="loginForm">
         {isLogin ? <h1>File Collection Project</h1> : <h1> Register </h1>}
         {isLogin ? (
           <div>
@@ -151,39 +151,39 @@ const LoginPage = () => {
             </div>
           </div>
         )}
-      </div>
 
-      <div className="mb-3">
-        <br />
-        {isLogin ? (
-          <h6>
-            계정이 없으신가요?{" "}
-            <Button
-              color="default"
-              size="sm"
-              type="button"
-              className="smButton"
-              onClick={() => setLogin(false)}
-            >
-              회원가입
-            </Button>{" "}
-            해주세요!
-          </h6>
-        ) : (
-          <h6>
-            계정이 있으신가요?{" "}
-            <Button
-              color="default"
-              size="sm"
-              type="button"
-              className="smButton"
-              onClick={() => setLogin(true)}
-            >
-              로그인
-            </Button>{" "}
-            해주세요!
-          </h6>
-        )}
+        <div className="mb-3">
+          <br />
+          {isLogin ? (
+            <h6>
+              계정이 없으신가요?{" "}
+              <Button
+                color="default"
+                size="sm"
+                type="button"
+                className="smButton"
+                onClick={() => setLogin(false)}
+              >
+                회원가입
+              </Button>{" "}
+              해주세요!
+            </h6>
+          ) : (
+            <h6>
+              계정이 있으신가요?{" "}
+              <Button
+                color="default"
+                size="sm"
+                type="button"
+                className="smButton"
+                onClick={() => setLogin(true)}
+              >
+                로그인
+              </Button>{" "}
+              해주세요!
+            </h6>
+          )}
+        </div>
       </div>
     </div>
   );
