@@ -31,6 +31,14 @@ const LoginPage = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (token["mytoken"]) {
+      localStorage.setItem("username", username);
+      searchId();
+      navigate("/home");
+    }
+  }, [token]);
+
   const loginBtn = () => {
     LoginService.LoginUser({ username, password })
       .then((resp) => setToken("mytoken", resp.token))
@@ -50,14 +58,6 @@ const LoginPage = () => {
       }
     });
   };
-
-  useEffect(() => {
-    if (token["mytoken"]) {
-      localStorage.setItem("username", username);
-      searchId();
-      navigate("/home");
-    }
-  }, [token]);
 
   return (
     <div>
