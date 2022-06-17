@@ -156,6 +156,9 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+#내가 지정
+fileColBack/api/documents/
+
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
@@ -168,6 +171,14 @@ cython_debug/
 logs
 **/*.backup.*
 **/*.back.*
+#react-따로 추가함
+**/*.log
+
+
+file-col/yarn.lock
+file-col/package-lock.json
+file-col/package.json
+#여기까지
 
 node_modules
 bower_components
