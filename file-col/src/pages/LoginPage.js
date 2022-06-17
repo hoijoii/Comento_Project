@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import { Button } from "reactstrap";
+import { Button, Alert } from "reactstrap";
 import axios from "axios";
 import LoginService from "../LoginService";
 import "./loginPage.css";
@@ -33,6 +33,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (token["mytoken"]) {
+      //console.log(token["mytoken"]);
       localStorage.setItem("username", username);
       searchId();
       navigate("/home");
@@ -41,7 +42,12 @@ const LoginPage = () => {
 
   const loginBtn = () => {
     LoginService.LoginUser({ username, password })
-      .then((resp) => setToken("mytoken", resp.token))
+      .then((resp) => {
+        if (resp.token.length === 40) {
+          setToken("mytoken", resp.token);
+          console.log("ok");
+        }
+      })
       .catch((error) => console.log(error));
   };
 
@@ -57,6 +63,13 @@ const LoginPage = () => {
         localStorage.setItem("userId", user.id);
       }
     });
+  };
+
+  const checkAccount = () => {
+    if (!token["mytoken"]) {
+      alert("존재하지 않는 계정입니다.");
+      return <Alert variant="danger">존재하지 않는 계정입니다.</Alert>;
+    }
   };
 
   return (
@@ -90,7 +103,10 @@ const LoginPage = () => {
                 color="secondary"
                 size="lg"
                 type="button"
-                onClick={loginBtn}
+                onClick={() => {
+                  loginBtn();
+                  checkAccount();
+                }}
                 className="loginbutton"
               >
                 로그인
