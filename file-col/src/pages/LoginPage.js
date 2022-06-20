@@ -66,9 +66,9 @@ const LoginPage = () => {
   };
 
   const checkAccount = () => {
-    if (!token["mytoken"]) {
+    if (token["mytoken"].length !== 40) {
       alert("존재하지 않는 계정입니다.");
-      return <Alert variant="danger">존재하지 않는 계정입니다.</Alert>;
+      //return <Alert variant="danger">존재하지 않는 계정입니다.</Alert>;
     }
   };
 
