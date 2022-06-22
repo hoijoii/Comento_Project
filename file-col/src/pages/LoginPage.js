@@ -36,17 +36,20 @@ const LoginPage = () => {
       //console.log(token["mytoken"]);
       localStorage.setItem("username", username);
       searchId();
-      navigate("/home");
     }
   }, [token]);
 
   const loginBtn = () => {
     LoginService.LoginUser({ username, password })
       .then((resp) => {
-        if (resp.token.length === 40) {
-          setToken("mytoken", resp.token);
-          console.log("ok");
-        }
+        setToken("mytoken", resp.token);
+        /*console.log(resp.token);
+        if (resp.token === "undefined") {
+          alert("존재하지 않는 계정입니다.");
+        } else {
+          console.log("error");
+          //navigate("/home");
+        }*/
       })
       .catch((error) => console.log(error));
   };
@@ -65,12 +68,23 @@ const LoginPage = () => {
     });
   };
 
+  /*
   const checkAccount = () => {
+    const usersId = [];
+    users.map((user) => {
+      usersId.push(user.id);
+    });
+    if (!(localStorage.userId in usersId)) {
+      console.log(localStorage.userId, usersId);
+      alert("존재하지 않는 계정입니다.");
+    }
+    /*
     if (token["mytoken"].length !== 40) {
       alert("존재하지 않는 계정입니다.");
-      //return <Alert variant="danger">존재하지 않는 계정입니다.</Alert>;
+      return <Alert variant="danger">존재하지 않는 계정입니다.</Alert>;
     }
   };
+*/
 
   return (
     <div>
@@ -105,7 +119,6 @@ const LoginPage = () => {
                 type="button"
                 onClick={() => {
                   loginBtn();
-                  checkAccount();
                 }}
                 className="loginbutton"
               >
