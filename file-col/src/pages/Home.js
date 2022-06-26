@@ -9,10 +9,10 @@ const Home = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (!token["mytoken"]) {
+    if (!token["mytoken"] || token["mytoken"] == "undefined") {
       navigate("/");
     }
-  }, [token]);
+  });
 
   const logoutBtn = () => {
     removeToken("mytoken", { path: "/" });
