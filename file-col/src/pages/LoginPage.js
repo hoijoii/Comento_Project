@@ -16,7 +16,7 @@ const LoginPage = () => {
   const [realname, setRealname] = useState("");
   const [companyCode, setCompanyCode] = useState("");
 
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -33,7 +33,6 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (token["mytoken"]) {
-      //console.log(token["mytoken"]);
       localStorage.setItem("username", username);
       searchId();
     }
@@ -43,13 +42,7 @@ const LoginPage = () => {
     LoginService.LoginUser({ username, password })
       .then((resp) => {
         setToken("mytoken", resp.token);
-        /*console.log(resp.token);
-        if (resp.token === "undefined") {
-          alert("존재하지 않는 계정입니다.");
-        } else {
-          console.log("error");
-          //navigate("/home");
-        }*/
+        navigate("/home");
       })
       .catch((error) => console.log(error));
   };
@@ -66,6 +59,14 @@ const LoginPage = () => {
         localStorage.setItem("userId", user.id);
       }
     });
+  };
+
+  const checkAccount = (userToken) => {
+    if (userToken !== "undefined") {
+      navigate("/home");
+    } else {
+      alert("존재하지 않는 계정입니다.");
+    }
   };
 
   /*
@@ -119,6 +120,10 @@ const LoginPage = () => {
                 type="button"
                 onClick={() => {
                   loginBtn();
+
+                  /*if (token["mytoken"]) {
+                    navigate("/home");
+                  }*/
                 }}
                 className="loginbutton"
               >

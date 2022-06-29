@@ -3,11 +3,14 @@ import axios from "axios";
 import "./group.css";
 import "../style/style.css";
 import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Group = () => {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
   const [token] = useCookies(["mytoken"]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
