@@ -44,6 +44,10 @@ const LoginPage = () => {
         setToken("mytoken", resp.token);
         cb(resp.token);
       })
+      .then(() => {
+        localStorage.setItem("username", username);
+        searchId();
+      })
       .catch((error) => console.log(error));
   };
 
@@ -56,7 +60,8 @@ const LoginPage = () => {
   const searchId = () => {
     users.map((user) => {
       if (user.email === username) {
-        localStorage.setItem("userId", user.id);
+        localStorage.setItem("userId", user.id); //문제
+        console.log(user.id);
       }
     });
   };
