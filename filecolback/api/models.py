@@ -26,7 +26,7 @@ class File(models.Model):
 
 class Company(models.Model):
     id = models.AutoField(primary_key=True, null=False, blank=False)
-    code = models.IntegerField(null=True)
+    code = models.CharField(max_length=100, null=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, blank=True)
     def __int__(self):
         return self.code

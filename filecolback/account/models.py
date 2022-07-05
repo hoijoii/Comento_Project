@@ -37,7 +37,7 @@ class User(AbstractBaseUser):
         unique=True,
     )
     realname = models.CharField(max_length=10)
-    companyCode = models.IntegerField(null=True)
+    companyCode = models.CharField(max_length=100, null=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 

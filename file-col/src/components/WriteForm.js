@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 
@@ -11,6 +11,7 @@ const reducer = (state, action) => {
 };
 
 const WriteForm = () => {
+  const { id } = useParams();
   const [token] = useCookies(["mytoken"]);
   const [writer, setWriter] = useState("");
   const [users, setUsers] = useState([]);
@@ -19,9 +20,10 @@ const WriteForm = () => {
     description: "",
     startDay: "",
     endDay: "",
+    codes: "", //회사코드. Company 테이블에 들어갈 정보
   });
 
-  const { title, description, startDay, endDay } = state;
+  const { title, description, startDay, endDay, codes } = state;
 
   const onChange = (e) => {
     dispatch(e.target);
