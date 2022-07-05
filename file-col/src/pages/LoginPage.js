@@ -22,11 +22,11 @@ const LoginPage = () => {
     axios
       .get(`http://127.0.0.1:8000/account/users/`, {
         headers: {
-          Authorization: `Token ${token["mytoken"]}`,
-        },
+          Authorization: `Token ${token["mytoken"]}`
+        }
       })
-      .then((resp) => setUsers(resp.data))
-      .catch((Error) => {
+      .then(resp => setUsers(resp.data))
+      .catch(Error => {
         console.log(Error);
       });
   }, []);
@@ -38,29 +38,29 @@ const LoginPage = () => {
     }
   }, [token]);
 
-  const loginBtn = async (cb) => {
+  const loginBtn = async cb => {
     return await LoginService.LoginUser({ username, password })
-      .then((resp) => {
+      .then(resp => {
         setToken("mytoken", resp.token);
-        cb(resp.token);
+        cb(resp.token); // callback 비동기처리
       })
       .then(() => {
         localStorage.setItem("username", username);
         searchId();
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 
   const RegisterBtn = () => {
     LoginService.RegisterUser({ email, password, realname, companyCode })
       .then(() => loginBtn)
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 
   const searchId = () => {
-    users.map((user) => {
+    users.map(user => {
       if (user.email === username) {
-        localStorage.setItem("userId", user.id); //문제
+        localStorage.setItem("userId", user.id);
         console.log(user.id);
       }
     });
@@ -79,7 +79,7 @@ const LoginPage = () => {
                 id="username"
                 placeholder="Enter Email"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={e => setUsername(e.target.value)}
               />
               <br />
               <input
@@ -88,7 +88,7 @@ const LoginPage = () => {
                 id="password"
                 placeholder="Enter Password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
               />
               <br />
               <br />
@@ -98,7 +98,7 @@ const LoginPage = () => {
                 size="lg"
                 type="button"
                 onClick={() => {
-                  loginBtn((userToken) => {
+                  loginBtn(userToken => {
                     if (!userToken || userToken === "undefined") {
                       alert("존재하지 않는 계정입니다.");
                       console.log(userToken);
@@ -123,7 +123,7 @@ const LoginPage = () => {
                 id="email"
                 placeholder="Enter Email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
               />
               <br />
               <input
@@ -132,7 +132,7 @@ const LoginPage = () => {
                 id="password"
                 placeholder="Enter Password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
               />
               <br />
               <input
@@ -141,7 +141,7 @@ const LoginPage = () => {
                 id="realname"
                 placeholder="Enter Your Realname"
                 value={realname}
-                onChange={(e) => setRealname(e.target.value)}
+                onChange={e => setRealname(e.target.value)}
               />
               <br />
               <input
@@ -150,7 +150,7 @@ const LoginPage = () => {
                 id="companyCode"
                 placeholder="Enter Your Company Code"
                 value={companyCode}
-                onChange={(e) => setCompanyCode(e.target.value)}
+                onChange={e => setCompanyCode(e.target.value)}
               />
 
               <br />

@@ -26,6 +26,9 @@ file_detail = FileViewSet.as_view({
     })
 
 class CompanyViewSet(viewsets.ModelViewSet):
-    queryset = File.objects.all()
-    serializer_class = FileSerializer
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
 
+company_detail = CompanyViewSet.as_view({
+        'get': 'retrieve',
+    })

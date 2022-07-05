@@ -13,5 +13,6 @@ router.register('companies', CompanyViewSet, basename='companies')
 urlpatterns = [
     path('api/', include(router.urls)),
     path('posts/<int:id>/', views.post_detail),
-    path('files/<int:id>', views.file_detail)
+    path('files/<int:id>/', views.file_detail),
+    path('companies/<int:id>/', views.company_detail)
 ]

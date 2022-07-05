@@ -28,6 +28,6 @@ class Company(models.Model):
     id = models.AutoField(primary_key=True, null=False, blank=False)
     code = models.IntegerField(null=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, blank=True)
-    def __str__(self):
+    def __int__(self):
         return self.code
 
