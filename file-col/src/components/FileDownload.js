@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import fileDownload from "js-file-download";
+//import fileDownload from "js-file-download";
 
 const FileDownload = ({ fileId }) => {
   const [fileData, setFileData] = useState("");
@@ -13,7 +13,7 @@ const FileDownload = ({ fileId }) => {
         },
       })
       .then((resp) => {
-        fileDownload(resp.data.files, resp.data.title);
+        //fileDownload(resp.data.files, resp.data.title);
       })
       /*
       .then((resp) => {

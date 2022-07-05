@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import { Button, Alert } from "reactstrap";
+import { Button } from "reactstrap";
 import axios from "axios";
 import LoginService from "../LoginService";
 import "./loginPage.css";
 
 const LoginPage = () => {
-  const [token, setToken] = useCookies(["mytoken"]);
+  const [token, setToken, removeToken] = useCookies(["mytoken"]);
   const [users, setUsers] = useState([]);
   const [isLogin, setLogin] = useState(true);
   const [username, setUsername] = useState("");
@@ -38,11 +38,11 @@ const LoginPage = () => {
     }
   }, [token]);
 
-  const loginBtn = () => {
-    LoginService.LoginUser({ username, password })
+  const loginBtn = async (cb) => {
+    return await LoginService.LoginUser({ username, password })
       .then((resp) => {
         setToken("mytoken", resp.token);
-        navigate("/home");
+        cb(resp.token);
       })
       .catch((error) => console.log(error));
   };
@@ -60,32 +60,6 @@ const LoginPage = () => {
       }
     });
   };
-
-  const checkAccount = (userToken) => {
-    if (userToken !== "undefined") {
-      navigate("/home");
-    } else {
-      alert("존재하지 않는 계정입니다.");
-    }
-  };
-
-  /*
-  const checkAccount = () => {
-    const usersId = [];
-    users.map((user) => {
-      usersId.push(user.id);
-    });
-    if (!(localStorage.userId in usersId)) {
-      console.log(localStorage.userId, usersId);
-      alert("존재하지 않는 계정입니다.");
-    }
-    /*
-    if (token["mytoken"].length !== 40) {
-      alert("존재하지 않는 계정입니다.");
-      return <Alert variant="danger">존재하지 않는 계정입니다.</Alert>;
-    }
-  };
-*/
 
   return (
     <div>
@@ -119,11 +93,15 @@ const LoginPage = () => {
                 size="lg"
                 type="button"
                 onClick={() => {
-                  loginBtn();
-
-                  /*if (token["mytoken"]) {
-                    navigate("/home");
-                  }*/
+                  loginBtn((userToken) => {
+                    if (!userToken || userToken === "undefined") {
+                      alert("존재하지 않는 계정입니다.");
+                      console.log(userToken);
+                      removeToken("mytoken", { path: "/" });
+                    } else {
+                      navigate("/home");
+                    }
+                  });
                 }}
                 className="loginbutton"
               >
