@@ -8,8 +8,8 @@ const PostingPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!token["mytoken"]) {
-      navigate("/");
+    if (!token["mytoken"] || token["mytoken"] === "undefined") {
+      //navigate("/");
     }
   });
   return (

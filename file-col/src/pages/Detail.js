@@ -79,7 +79,7 @@ const Detail = () => {
             </button>
             <button
               onClick={() => {
-                navigate("/");
+                navigate("/home");
                 deletePost();
               }}
               className="btn btn-success"

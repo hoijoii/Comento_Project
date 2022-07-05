@@ -67,11 +67,17 @@ const WriteForm = () => {
             Authorization: `Token ${token["mytoken"]}`,
           },
         }
-      );
+      ).then(()=>insertCodes)
     } catch (e) {
       return e.response ? e.response : e;
     }
   };
+
+  const insertCodes = () => {
+    const code = codes.split(' ')
+    console.log(code)
+       //axios.post("http://127.0.0.1:8000/api/companies/"),
+  }
 
   return (
     <div>
@@ -113,10 +119,19 @@ const WriteForm = () => {
             value={endDay}
             onChange={onChange}
           />
+          <input
+              name="codes"
+              type="text"
+              className="form-control"
+              placeholder="회사코드를 입력해주세요"
+              value={codes}
+              onChange={onChange}
+          />
+          <p>스페이스로 구분하여 입력해주세요. (예시: 12345 23456 34567)</p>
           <button
             onClick={() => {
-              navigate("/");
-              insertPost();
+              navigate("/home");
+              insertPost()
             }}
             className="btn btn-success"
           >

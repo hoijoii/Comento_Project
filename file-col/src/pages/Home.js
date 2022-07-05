@@ -9,7 +9,7 @@ const Home = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (!token["mytoken"] || token["mytoken"] == "undefined") {
+    if (!token["mytoken"] || token["mytoken"] === "undefined") {
       navigate("/");
     }
   });
