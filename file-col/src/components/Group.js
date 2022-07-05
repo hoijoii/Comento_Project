@@ -36,7 +36,7 @@ const Group = () => {
       .catch((Error) => {
         console.log(Error);
       });
-  }, []);
+  }, [posts]);
 
   posts.sort((a, b) => b.id - a.id);
 
