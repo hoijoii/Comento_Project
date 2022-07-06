@@ -6,12 +6,12 @@ import { useCookies } from "react-cookie";
 const reducer = (state, action) => {
   return {
     ...state,
-    [action.name]: action.value,
+    [action.name]: action.value
   };
 };
 
 const WriteForm = () => {
-  const { id } = useParams();
+  const id = useParams();
   const [token] = useCookies(["mytoken"]);
   const [writer, setWriter] = useState("");
   const [users, setUsers] = useState([]);
@@ -19,13 +19,12 @@ const WriteForm = () => {
     title: "",
     description: "",
     startDay: "",
-    endDay: "",
-    codes: "", //회사코드. Company 테이블에 들어갈 정보
+    endDay: ""
   });
 
-  const { title, description, startDay, endDay, codes } = state;
+  const { title, description, startDay, endDay } = state;
 
-  const onChange = (e) => {
+  const onChange = e => {
     dispatch(e.target);
   };
 
@@ -35,11 +34,11 @@ const WriteForm = () => {
     axios
       .get(`http://127.0.0.1:8000/account/users/`, {
         headers: {
-          Authorization: `Token ${token["mytoken"]}`,
-        },
+          Authorization: `Token ${token["mytoken"]}`
+        }
       })
-      .then((resp) => setUsers(resp.data))
-      .catch((Error) => {
+      .then(resp => setUsers(resp.data))
+      .catch(Error => {
         console.log(Error);
       });
   }, []);
@@ -49,7 +48,7 @@ const WriteForm = () => {
   });
 
   const searchWriter = () => {
-    users.map((user) => {
+    users.map(user => {
       if (user.id === JSON.parse(localStorage.userId)) {
         setWriter(user.id);
       }
@@ -64,20 +63,31 @@ const WriteForm = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Token ${token["mytoken"]}`,
-          },
+            Authorization: `Token ${token["mytoken"]}`
+          }
         }
-      ).then(()=>insertCodes)
+      );
+      //.then(()=>insertCodes())
     } catch (e) {
       return e.response ? e.response : e;
     }
   };
 
   const insertCodes = () => {
-    const code = codes.split(' ')
-    console.log(code)
-       //axios.post("http://127.0.0.1:8000/api/companies/"),
-  }
+    const companyCodes = prompt("회사 코드를 입력해주세요 (스페이스로 구분)");
+    const codes = companyCodes.split(" ");
+    codes.map(code => {
+      axios.post(
+        "http://127.0.0.1:8000/api/companies/",
+        { code, id },
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+    });
+  };
 
   return (
     <div>
@@ -119,19 +129,11 @@ const WriteForm = () => {
             value={endDay}
             onChange={onChange}
           />
-          <input
-              name="codes"
-              type="text"
-              className="form-control"
-              placeholder="회사코드를 입력해주세요"
-              value={codes}
-              onChange={onChange}
-          />
-          <p>스페이스로 구분하여 입력해주세요. (예시: 12345 23456 34567)</p>
           <button
             onClick={() => {
-              navigate("/home");
-              insertPost()
+              insertPost();
+              insertCodes();
+              navigate(`/home`);
             }}
             className="btn btn-success"
           >
