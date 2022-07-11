@@ -14,6 +14,7 @@ const WriteForm = () => {
   const id = useParams();
   const [token] = useCookies(["mytoken"]);
   const [writer, setWriter] = useState("");
+  const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
   const [state, dispatch] = useReducer(reducer, {
     title: "",
@@ -44,9 +45,31 @@ const WriteForm = () => {
   }, []);
 
   useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/api/posts/`, {
+        headers: {
+          Authorization: `Token ${token["mytoken"]}`
+        }
+      })
+      .then(resp => setPosts(resp.data))
+      //.then(() => findLatestId())
+      .catch(Error => {
+        console.log(Error);
+      });
+  }, []);
+
+  useEffect(() => {
     searchWriter();
   });
-
+  /*
+  const findLatestId = () => {
+    let postList = [];
+    posts.map(post => {
+      postList.push(post.id);
+    });
+    console.log(...postList);
+  };
+*/
   const searchWriter = () => {
     users.map(user => {
       if (user.id === JSON.parse(localStorage.userId)) {
